@@ -4,8 +4,9 @@ import at.aau.serg.models.GameResult
 import org.springframework.stereotype.Service
 import java.util.concurrent.atomic.AtomicLong
 
-@Service
+@Service // manages business logic of the program
 class GameResultService {
+    // service layer automatically creates a GameResultService obj, we don't need to create new obj in other classes when we want to use them
 
     private val gameResults = mutableListOf<GameResult>()
     private var nextId = AtomicLong(1)
