@@ -14,10 +14,11 @@ class LeaderboardController(
 
     @GetMapping
     fun getLeaderboard(): List<GameResult> = // returns a list of game obj sorted by score
-        gameResultService.getGameResults().sortedWith(compareBy({ -it.score }, { it.id }))
-    // sortedWith: a Kotlin function that sorts a collection based on a given comparator.
-    // compareBy: defines criteria for sorting
+        //gameResultService.getGameResults().sortedWith(compareBy({ -it.score }, { it.id }))
+    // sortedWith: a Kotlin function that sorts a collection based on a given comparator. it converts the list into an array and uses pairwise comparison to determine the order
+    // compareBy: defines criteria for sorting - by default sorts in ascending order
     // -it.score: first criterion - we're sorting by the score in reverse order (higher score comes first)
     // it.id: second criterion - if two GameResult objects have the same score, we sort it by their id from lowest to highest
+        gameResultService.getGameResults().sortedWith(compareBy({-it.score}, {it.timeInSeconds}))
 
 }
