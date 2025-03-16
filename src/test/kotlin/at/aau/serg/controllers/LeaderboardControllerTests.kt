@@ -55,7 +55,7 @@ class LeaderboardControllerTests {
         assertEquals(3, res.size)
         assertEquals(second, res[0]) // 10s is the fastest
         assertEquals(third, res[1])  // 15s
-        assertEquals(first, res[2])  // 20s is the slowest 
+        assertEquals(first, res[2])  // 20s is the slowest
     }
 
 }
