@@ -42,7 +42,7 @@ class LeaderboardControllerTests {
     }
 
     @Test
-    fun test_getLeaderboard_sameScore_CorrectIdSorting() { // checks if they're sorted by id (in ascending order)
+    fun test_getLeaderboard_sameScore_CorrectTimeSorting() {
         val first = GameResult(1, "first", 20, 20.0)
         val second = GameResult(2, "second", 20, 10.0)
         val third = GameResult(3, "third", 20, 15.0)
@@ -53,9 +53,9 @@ class LeaderboardControllerTests {
 
         verify(mockedService).getGameResults()
         assertEquals(3, res.size)
-        assertEquals(first, res[0])
-        assertEquals(second, res[1])
-        assertEquals(third, res[2])
+        assertEquals(second, res[0]) // 10s is the fastest
+        assertEquals(third, res[1])  // 15s
+        assertEquals(first, res[2])  // 20s is the slowest 
     }
 
 }
