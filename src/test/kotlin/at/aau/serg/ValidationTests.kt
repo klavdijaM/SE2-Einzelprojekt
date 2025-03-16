@@ -4,7 +4,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class ValidationTests {
+class ValidationTests { // validates the XML file
     @Test
     fun `successful validation with abgabe xml`() = runBlocking {
         val exitCode = ValidationRunner.runValidation(arrayOf("abgabe.xml"))

@@ -8,7 +8,7 @@ import kotlin.test.assertNull
 
 class GameResultServiceTests {
 
-    private lateinit var service: GameResultService
+    private lateinit var service: GameResultService // lateinit means the variable will be initialized later
 
     @BeforeEach
     fun setup() {
@@ -20,6 +20,7 @@ class GameResultServiceTests {
         val result = service.getGameResults()
 
         assertEquals(emptyList<GameResult>(), result)
+        // emptyList<T>() is a Kotlin function which returns an immutable empty list of type T
     }
 
     @Test
@@ -66,7 +67,7 @@ class GameResultServiceTests {
         assertEquals(2, res.size)
 
         assertEquals(gameResult1, res[0])
-        assertEquals(1, res[0].id)
+        assertEquals(1, res[0].id) // when we call addGameResult, the method assigns an id to the gameResult and increments it for the next entry
 
         assertEquals(gameResult2, res[1])
         assertEquals(2, res[1].id)
